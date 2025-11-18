@@ -1,0 +1,109 @@
+📒 Mini Proyecto: Libreta de Contactos
+🧾 Introducción
+
+Este mini proyecto consiste en desarrollar una libreta de contactos sencilla usando HTML, CSS y JavaScript puro. El propósito es reforzar conceptos fundamentales de programación como variables, arrays, objetos, eventos, validaciones, y manipulación del DOM, además de trabajar con localStorage de forma opcional.
+
+🎯 Objetivo
+
+Agregar contactos (nombre, teléfono, email)
+
+Mostrar contactos en pantalla
+
+Eliminar contactos
+
+(Opcional) Guardar y recuperar los datos con localStorage
+
+🧠 Conceptos que practicarás
+
+Variables
+
+Strings, números y objetos
+
+Arrays
+
+Condicionales y ciclos
+
+Eventos (addEventListener)
+
+Manipulación del DOM
+
+Almacenamiento local (localStorage)
+
+✅ Instrucciones paso a paso (To-do List / Algoritmo)
+1. Crear la interfaz HTML
+
+Formulario con los siguientes campos:
+
+input de texto para nombre
+
+input de teléfono
+
+input de correo electrónico
+
+Botón de tipo submit para agregar el contacto
+
+Div o sección donde se mostrará la lista de contactos
+
+2. Inicializar las variables
+
+Crear un array vacío contactos = []
+
+(Opcional) Verificar si hay datos guardados en localStorage y cargarlos al iniciar
+
+3. Capturar el evento del formulario
+
+Usar addEventListener para capturar el evento submit
+
+Prevenir el comportamiento por defecto con event.preventDefault()
+
+4. Validar los datos ingresados
+
+Comprobar que los campos no estén vacíos
+
+(Opcional) Validar formato de email y teléfono
+
+5. Crear un objeto de contacto
+
+A partir de los datos capturados, construir un objeto:
+
+{
+  nombre: "Juan Pérez",
+  telefono: "555-1234",
+  email: "juan@mail.com"
+}
+
+6. Agregar el contacto al array
+
+Insertar el objeto en el array contactos
+
+(Opcional) Actualizar el contenido en localStorage
+
+7. Limpiar el formulario
+
+Borrar los campos del formulario con .value = ''
+
+8. Renderizar la lista de contactos
+
+Crear una función para mostrar los contactos en el DOM
+
+Usar un bucle para recorrer el array y crear una tarjeta por cada contacto
+
+Mostrar nombre, teléfono y email
+
+Incluir un botón para eliminar el contacto
+
+9. Eliminar contacto
+
+Detectar el ID o índice del contacto a eliminar
+
+Usar splice o filter para removerlo del array
+
+Volver a renderizar la lista
+
+(Opcional) Actualizar localStorage
+
+10. Persistir con localStorage (Opcional)
+
+Guardar el array con localStorage.setItem('contactos', JSON.stringify(contactos))
+
+Recuperar con JSON.parse(localStorage.getItem('contactos'))

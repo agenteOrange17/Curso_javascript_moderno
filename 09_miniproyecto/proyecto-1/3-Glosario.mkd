@@ -1,0 +1,147 @@
+📚 Glosario JavaScript – Libreta de Contactos
+🟢 const y let
+
+const: Se usa para declarar constantes, es decir, variables cuyo valor no cambiará (por ejemplo, referencias al DOM).
+
+let: Se usa para declarar variables que pueden cambiar, como el array contactos.
+
+const formulario = document.getElementById('formulario-contacto');
+let contactos = [];
+
+🟢 getElementById()
+
+Método del DOM que permite obtener un elemento HTML por su id.
+
+const formulario = document.getElementById('formulario-contacto');
+
+🟢 addEventListener()
+
+Asigna una función que se ejecutará cuando ocurra un evento (por ejemplo, submit o click).
+
+formulario.addEventListener('submit', function(event) { ... });
+
+🟢 event.preventDefault()
+
+Evita el comportamiento por defecto de un evento.
+En un formulario, evita que se recargue la página.
+
+event.preventDefault();
+
+🟢 .value
+
+Obtiene el valor actual de un campo de formulario.
+
+const nombre = inputNombre.value;
+
+🟢 .trim()
+
+Elimina espacios en blanco al principio y final de un string.
+
+const nombre = inputNombre.value.trim();
+
+🟢 if (condición)
+
+Estructura condicional. Ejecuta un bloque si la condición es verdadera.
+
+if (nombre === '') {
+  alert('El nombre no puede estar vacío');
+}
+
+🟢 return
+
+Detiene la ejecución de una función. Muy útil para salir temprano si hay un error o condición no cumplida.
+
+if (campoVacio) {
+  alert('Faltan datos');
+  return;
+}
+
+🟢 Objetos { ... }
+
+Estructura que agrupa múltiples datos bajo una sola variable.
+
+const contacto = {
+  nombre: 'Mauricio',
+  telefono: '123456',
+  email: 'correo@mail.com'
+};
+
+🟢 Arrays [] y .push()
+
+Un array es una colección de elementos (como una lista).
+
+El método .push() agrega un nuevo elemento al final del array.
+
+let contactos = [];
+contactos.push(contacto);
+
+🟢 console.log()
+
+Muestra información en la consola del navegador.
+Útil para depurar (ver si las cosas funcionan).
+
+console.log('Contacto agregado:', contacto);
+
+🟢 .forEach()
+
+Recorre cada elemento de un array y ejecuta una función.
+
+contactos.forEach(function(contacto, index) {
+  // aquí usamos contacto e index
+});
+
+🟢 document.createElement()
+
+Crea un nuevo elemento HTML desde JavaScript.
+
+const div = document.createElement('div');
+
+🟢 .classList.add()
+
+Agrega una o más clases CSS a un elemento HTML.
+
+div.classList.add('contacto');
+
+🟢 .innerHTML
+
+Permite insertar código HTML dentro de un elemento.
+
+div.innerHTML = `<strong>Nombre:</strong> ${contacto.nombre}`;
+
+🟢 .appendChild()
+
+Agrega un elemento hijo dentro de otro elemento.
+
+listaContactos.appendChild(div);
+
+🟢 dataset
+
+Permite almacenar atributos personalizados (data-*) en elementos HTML.
+
+btnEliminar.dataset.index = index;
+
+🟢 .splice()
+
+Permite eliminar elementos de un array, indicando posición e índice.
+
+contactos.splice(index, 1); // elimina 1 elemento desde la posición index
+
+🟢 Funciones personalizadas
+
+Reutilizamos código agrupando instrucciones en funciones.
+
+function renderizarContactos() {
+  // código para mostrar contactos en pantalla
+}
+
+🏁 Conclusión
+
+Este ejercicio cubre lo más esencial y práctico del desarrollo con JavaScript en el navegador:
+
+Estructuras (arrays, objetos)
+
+Interacción con el usuario (eventos)
+
+DOM dinámico (crear y modificar HTML desde JS)
+
+Validación y lógica básica

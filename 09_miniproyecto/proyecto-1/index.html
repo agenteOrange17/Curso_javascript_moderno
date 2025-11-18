@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libreta de Contactos</title>
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contactos {
+      max-width: 500px;
+      margin: 40px auto 0;
+    }
+
+    .contacto {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .eliminar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Libreta de Contactos</h1>
+
+  <form id="formulario-contacto">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="tel" id="telefono" placeholder="Teléfono" required>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <button type="submit">Agregar Contacto</button>
+  </form>
+
+  <div class="contactos" id="lista-contactos">
+    <!-- Aquí se mostrarán los contactos -->
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

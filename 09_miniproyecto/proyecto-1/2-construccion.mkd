@@ -1,0 +1,375 @@
+✅ Paso 1 – Crear la interfaz HTML
+🎯 Objetivo:
+
+Diseñar una estructura HTML que permita al usuario ingresar nuevos contactos y ver la lista de contactos registrados.
+
+📋 Lo que debe incluir:
+
+Un <form> que contenga:
+
+Un campo para el nombre completo
+
+Un campo para el teléfono
+
+Un campo para el correo electrónico
+
+Un botón para agregar el contacto
+
+Una sección donde se mostrarán los contactos agregados (por ejemplo, un <div> vacío al inicio).
+
+🧠 Qué aprendiste en este paso:
+
+Crear un formulario con campos input y un botón.
+
+Usar id para acceder luego desde JavaScript.
+
+Preparar un contenedor (#lista-contactos) para mostrar los contactos.
+
+✅ Confírmame cuando tengas este HTML armado en tu proyecto o si necesitas que lo integremos con algún diseño básico usando CSS o Tailwind. Luego pasamos al Paso 2: Inicializar las variables y el array de contactos.
+
+✅ Paso 2 – Inicializar variables (sin localStorage)
+🎯 Objetivo:
+
+Preparar el entorno de trabajo en JavaScript puro, conectando con el HTML para capturar los elementos necesarios y crear una estructura de datos (array) donde guardaremos los contactos mientras la página esté abierta.
+
+📋 Instrucciones paso a paso
+
+Crear el archivo app.js
+Si aún no lo tienes, crea un archivo llamado app.js en la misma carpeta del HTML.
+
+Verifica que tu HTML lo esté cargando al final del <body>:
+
+<script src="app.js"></script>
+
+
+Captura los elementos del DOM
+Vas a necesitar:
+
+El formulario (#formulario-contacto)
+
+Los tres campos de entrada: nombre, teléfono y email
+
+El contenedor donde se mostrarán los contactos (#lista-contactos)
+
+Crea un array vacío llamado contactos
+Este array servirá como "base de datos en memoria" mientras el usuario está en la página.
+
+🧾 Código JavaScript del paso (con comentarios explicativos)
+// 1. Capturamos los elementos del DOM necesarios
+const formulario = document.getElementById('formulario-contacto');
+const inputNombre = document.getElementById('nombre');
+const inputTelefono = document.getElementById('telefono');
+const inputEmail = document.getElementById('email');
+const listaContactos = document.getElementById('lista-contactos');
+
+// 2. Creamos el array vacío donde se guardarán los contactos
+let contactos = [];
+
+// 3. Mensaje de prueba para confirmar que todo funciona
+console.log('Formulario y campos listos. Array contactos inicializado.');
+
+📌 Resultado esperado
+
+Cuando abras la consola del navegador (F12 > Consola), deberías ver:
+
+Formulario y campos listos. Array contactos inicializado.
+
+
+Esto indica que ya tienes el entorno listo para empezar a capturar datos.
+
+✅ Lo aprendido en este paso
+
+Cómo conectar HTML con JS.
+
+Cómo capturar elementos usando getElementById.
+
+Cómo preparar una estructura de datos (let contactos = []) para almacenar objetos.
+
+✅ Paso 3 – Capturar el evento del formulario
+🎯 Objetivo:
+
+Detectar cuando el usuario hace clic en el botón “Agregar Contacto” y evitar que la página se recargue (comportamiento por defecto de los formularios). Esto nos permitirá controlar el flujo desde JavaScript.
+
+📋 Instrucciones paso a paso
+
+Escuchar el evento submit del formulario
+Usamos formulario.addEventListener() para ejecutar una función cuando el usuario envíe los datos.
+
+Evitar que el formulario se recargue automáticamente
+Usamos event.preventDefault() dentro del manejador del evento.
+
+Leer los valores actuales de los inputs
+Vamos a obtener inputNombre.value, inputTelefono.value, inputEmail.value y mostrar sus valores con console.log() para verificar que capturamos correctamente la información.
+
+🧾 Código JavaScript del paso
+// Ya capturamos estos elementos en el paso anterior:
+// formulario, inputNombre, inputTelefono, inputEmail
+
+// 1. Escuchamos el evento submit del formulario
+formulario.addEventListener('submit', function(event) {
+  // 2. Prevenimos que el formulario recargue la página
+  event.preventDefault();
+
+  // 3. Leemos los valores de los inputs
+  const nombre = inputNombre.value;
+  const telefono = inputTelefono.value;
+  const email = inputEmail.value;
+
+  // 4. Mostramos los datos en consola (prueba temporal)
+  console.log('Contacto ingresado:');
+  console.log('Nombre:', nombre);
+  console.log('Teléfono:', telefono);
+  console.log('Email:', email);
+
+  // (Más adelante aquí agregaremos validación y guardado en el array)
+});
+
+🧪 Resultado esperado
+
+Al escribir datos en el formulario y hacer clic en "Agregar Contacto", deberías ver algo como esto en la consola del navegador:
+
+Contacto ingresado:
+Nombre: Mauricio Belmonte
+Teléfono: 1234567890
+Email: mauricio@mail.com
+
+
+Y la página no debe recargarse ✅
+
+✅ Lo aprendido en este paso
+
+Cómo usar addEventListener('submit', ...) para controlar el formulario.
+
+Qué hace preventDefault() y por qué es importante.
+
+Cómo acceder a los valores de los inputs usando .value.
+
+✅ Paso 5 – Crear el objeto contacto y agregarlo al array
+🎯 Objetivo:
+
+Una vez que el formulario pasa la validación, construimos un objeto JavaScript con los datos del contacto y lo agregamos al array contactos.
+
+📋 Instrucciones paso a paso
+
+Crear el objeto contacto
+
+Usa las variables nombre, telefono y email que ya obtuvimos del formulario.
+
+Crea un objeto con esas propiedades.
+
+Agregar el objeto al array contactos
+
+Usa el método .push() para añadirlo al final del array.
+
+Mostrar en consola el nuevo estado del array
+
+Esto nos permite verificar que el contacto se agregó correctamente.
+
+(Opcional): en este punto aún no mostramos nada en pantalla, eso vendrá en el próximo paso. Solo almacenamos.
+
+🧾 Código completo del submit hasta este punto (actualizado)
+formulario.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // 1. Obtenemos los valores
+  const nombre = inputNombre.value.trim();
+  const telefono = inputTelefono.value.trim();
+  const email = inputEmail.value.trim();
+
+  // 2. Validamos que los campos no estén vacíos
+  if (nombre === '' || telefono === '' || email === '') {
+    alert('Por favor, completa todos los campos antes de agregar el contacto.');
+    return;
+  }
+
+  // 3. Creamos el objeto contacto
+  const contacto = {
+    nombre: nombre,
+    telefono: telefono,
+    email: email
+  };
+
+  // 4. Agregamos el objeto al array
+  contactos.push(contacto);
+
+  // 5. Mostramos en consola para verificar
+  console.log('📋 Contacto agregado:', contacto);
+  console.log('📦 Lista completa de contactos:', contactos);
+
+  // (En el siguiente paso limpiaremos el formulario y renderizaremos)
+});
+
+✅ Paso 6 – Limpiar el formulario y renderizar los contactos
+🎯 Objetivo:
+
+Limpiar los campos del formulario después de agregar un contacto.
+
+Mostrar todos los contactos agregados en la interfaz (DOM).
+
+Hacer que cada contacto aparezca en una “tarjeta” o contenedor con su nombre, teléfono y email.
+
+📋 Instrucciones paso a paso
+1. Limpiar el formulario
+
+Después de guardar el contacto en el array, limpiaremos los campos con:
+
+inputNombre.value = '';
+inputTelefono.value = '';
+inputEmail.value = '';
+
+2. Crear una función renderizarContactos()
+
+Esta función:
+
+Borra lo que haya en el contenedor #lista-contactos.
+
+Recorre el array contactos.
+
+Por cada contacto, genera un bloque de HTML (div) y lo inserta en la página.
+
+🧾 Código actualizado (completo del submit + renderizado)
+formulario.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const nombre = inputNombre.value.trim();
+  const telefono = inputTelefono.value.trim();
+  const email = inputEmail.value.trim();
+
+  if (nombre === '' || telefono === '' || email === '') {
+    alert('Por favor, completa todos los campos antes de agregar el contacto.');
+    return;
+  }
+
+  const contacto = {
+    nombre: nombre,
+    telefono: telefono,
+    email: email
+  };
+
+  contactos.push(contacto);
+
+  console.log('📋 Contacto agregado:', contacto);
+  console.log('📦 Lista completa de contactos:', contactos);
+
+  // ✅ Limpiar el formulario
+  inputNombre.value = '';
+  inputTelefono.value = '';
+  inputEmail.value = '';
+
+  // ✅ Mostrar contactos en pantalla
+  renderizarContactos();
+});
+
+🧩 Función renderizarContactos() (la agregas fuera del submit)
+function renderizarContactos() {
+  // 1. Limpiamos la lista antes de volver a renderizar
+  listaContactos.innerHTML = '';
+
+  // 2. Recorremos el array y creamos un bloque para cada contacto
+  contactos.forEach(function(contacto, index) {
+    const div = document.createElement('div');
+    div.classList.add('contacto');
+
+    div.innerHTML = `
+      <strong>Nombre:</strong> ${contacto.nombre}<br>
+      <strong>Teléfono:</strong> ${contacto.telefono}<br>
+      <strong>Email:</strong> ${contacto.email}<br>
+    `;
+
+    listaContactos.appendChild(div);
+  });
+}
+
+🧪 Resultado esperado
+
+Cada vez que agregues un contacto:
+
+Se limpia el formulario
+
+Aparece una tarjeta con los datos del contacto debajo del formulario
+
+✅ Lo aprendido en este paso
+
+Cómo limpiar inputs manualmente (input.value = '')
+
+Cómo recorrer arrays con .forEach()
+
+Cómo crear y agregar elementos al DOM con createElement y innerHTML
+
+✅ Paso 7 – Eliminar contactos
+🎯 Objetivo:
+
+Agregar un botón junto a cada contacto que permita eliminarlo del array y actualizar la vista (DOM) inmediatamente.
+
+📋 Instrucciones paso a paso
+1. Modificar la función renderizarContactos()
+
+Agrega un botón con la clase .eliminar dentro de cada tarjeta de contacto.
+
+El botón debe tener un data-index (o usar el índice del contacto) para saber cuál eliminar.
+
+2. Escuchar el evento click del botón
+
+Puedes agregar el addEventListener directamente al botón cuando lo creas.
+
+Al hacer clic, se ejecuta una función que:
+
+Obtiene el índice del contacto.
+
+Lo elimina del array con .splice().
+
+Vuelve a renderizar la lista.
+
+🧾 Código actualizado de renderizarContactos()
+function renderizarContactos() {
+  listaContactos.innerHTML = '';
+
+  contactos.forEach(function(contacto, index) {
+    const div = document.createElement('div');
+    div.classList.add('contacto');
+
+    // Contenido del contacto + botón de eliminar
+    div.innerHTML = `
+      <strong>Nombre:</strong> ${contacto.nombre}<br>
+      <strong>Teléfono:</strong> ${contacto.telefono}<br>
+      <strong>Email:</strong> ${contacto.email}<br>
+    `;
+
+    // Botón eliminar
+    const btnEliminar = document.createElement('button');
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.classList.add('eliminar');
+    btnEliminar.dataset.index = index; // asociamos el índice al botón
+
+    // Evento al hacer clic en eliminar
+    btnEliminar.addEventListener('click', function () {
+      eliminarContacto(index);
+    });
+
+    // Agregamos el botón al bloque del contacto
+    div.appendChild(btnEliminar);
+
+    // Agregamos todo al contenedor principal
+    listaContactos.appendChild(div);
+  });
+}
+
+🧾 Función auxiliar para eliminar contacto
+function eliminarContacto(index) {
+  contactos.splice(index, 1); // elimina 1 elemento en la posición index
+  renderizarContactos(); // actualiza la vista
+}
+
+🧪 Resultado esperado
+
+Aparece un botón "Eliminar" junto a cada contacto.
+
+Al hacer clic, el contacto desaparece del DOM y del array.
+
+✅ Lo aprendido en este paso
+
+Cómo usar .splice() para eliminar un elemento de un array por su índice.
+
+Cómo agregar botones dinámicamente y asociarles eventos.
+
+Cómo actualizar la interfaz con cada cambio en los datos.

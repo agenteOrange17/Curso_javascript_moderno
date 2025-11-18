@@ -1,0 +1,18 @@
+{
+  "clientes": [
+    {
+      "nombre": "Giddeon Goddart",
+      "email": "Giddeon@allsafe.com",
+      "telefono": "1234555555",
+      "empresa": "AllSafe",
+      "id": 2
+    },
+    {
+      "nombre": "Tyrell Wellick",
+      "email": "Tyrell@ecorpp.com",
+      "telefono": "1234555556",
+      "empresa": "E-corp",
+      "id": 3
+    }
+  ]
+}

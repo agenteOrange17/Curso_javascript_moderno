@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Calificaciones</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .alumno {
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .aprobado {
+      color: green;
+      font-weight: bold;
+    }
+
+    .reprobado {
+      color: red;
+      font-weight: bold;
+    }
+
+    #promedio {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    #limpiar {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Calculadora de Calificaciones</h1>
+
+  <form id="formulario-alumno">
+    <input type="text" id="nombre" placeholder="Nombre del alumno" required>
+    <input type="number" id="calificacion" placeholder="Calificación (0-100)" required>
+    <button type="submit">Agregar alumno</button>
+  </form>
+
+  <div id="lista-alumnos">
+    <!-- Aquí aparecerán los alumnos agregados -->
+  </div>
+
+  <div id="promedio"></div>
+
+  <button id="limpiar">Limpiar lista</button>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
