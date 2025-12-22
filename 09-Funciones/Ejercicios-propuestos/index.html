@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 2 - Retos de Funciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+  <div class="contenido">
+    <h1>JavaScript Moderno</h1>
+    <a href="http://www.codigoconjuan.com" target="_blank">codigoconjuan.com</a>
+    <p>Ejercicio 2: Retos para practicar</p>
+    <p class="hashtag">#JSModernoConJuan</p>
+  </div>
+
+  <pre id="output">Ejercicios por tema
+
+1) Declaración vs Expresión
+- Crea una función declaración `sumar(a,b)` que retorne a+b.
+- Crea una función expresión `restar(a,b)` que retorne a-b.
+- Llama ambas y compara resultados.
+
+2) Hoisting
+- Intenta llamar una expresión `saludar()` antes de declararla y observa el error.
+- Corrige usando declaración y documenta la diferencia.
+
+3) Funciones del lenguaje
+- Convierte `'20'` a número con `parseInt` y `'20.5'` con `parseFloat`.
+- Valida con `Number.isNaN` y muestra casos verdaderos/falsos.
+
+4) Método vs Función
+- Convierte `20` a string con `.toString()` y luego a número con `parseInt`.
+- Explica (en consola) cuándo usas función y cuándo método.
+
+5) Parámetros y argumentos
+- Implementa `saludar(nombre, apellido)` que retorne `Hola nombre apellido`.
+- Prueba con valores reales y sin argumentos.
+
+6) Parámetros por defecto
+- Implementa `saludar(nombre='Desconocido', apellido='')`.
+- Llama con 2, 1 y 0 argumentos y compara salidas.
+
+7) Comunicación entre funciones
+- Crea `iniciarApp()`, `cargarDatos()`, `autenticar(usuario)` encadenadas.
+- Muestra el flujo completo en consola.
+
+8) Retornar valores
+- Implementa `sumar(a,b)` y úsala para calcular varios resultados.
+- Crea `agregarCarrito(precio)` acumulando `total` y `calcularImpuesto(total)`.
+- Calcula `totalPagar` y muéstralo.
+
+9) Métodos de propiedad
+- Crea objeto `reproductor` con métodos `reproducir`, `pausar`, `borrar(id)`.
+- Añade `crearPlaylist(nombre)` y `reproducirPlaylist(nombre)`.
+
+10) Arrow functions
+- Reescribe una función tradicional a arrow y retorna un string.
+- Muestra diferencias de sintaxis y retorno implícito.
+
+11) Parámetros en arrow
+- Arrow con un parámetro sin paréntesis.
+- Arrow con múltiples parámetros con paréntesis.
+
+12) forEach y map con arrow
+- Dado un `carrito` de objetos `{nombre, precio}`, usa `map` para un array de strings.
+- Usa `forEach` para imprimir cada elemento con formato.
+
+13) Arrow en métodos, set/get
+- Crea objeto con métodos arrow y propiedades.
+- Implementa `set nuevaCancion` y `get obtenerCancion` y pruébalos.
+
+Sugerencia: Escribe tus soluciones en `app.js` y prueba en el navegador.
+  </pre>
+
+  <script src="app.js"></script>
+</body>
+</html>

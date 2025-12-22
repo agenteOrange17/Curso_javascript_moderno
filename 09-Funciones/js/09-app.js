@@ -17,6 +17,9 @@ const reproductor = {
     },
     reproducirPlaylist: function(nombre) {
         console.log(`Reproduciendo la Playlist ${nombre}`)
+    },
+    repetirPlaylist: function(nombre){
+        console.log(`Repitiendo la Playlist ${nombre}`);
     }
 }
 reproductor.reproducir(30);
@@ -29,4 +32,5 @@ reproductor.pausar();
 reproductor.borrar(20);
 reproductor.crearPlaylist('Heavy Metal');
 reproductor.reproducirPlaylist('Heavy Metal');
+reproductor.repetirPlaylist('Heavy Metal');
 

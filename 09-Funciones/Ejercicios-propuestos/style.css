@@ -1,0 +1,88 @@
+:root {
+  --sky: #8ecae6;
+  --sky-deep: #219ebc;
+  --grass: #70c050;
+  --grass-dark: #2c6e49;
+  --dirt: #8b5a2b;
+  --dirt-dark: #5c4033;
+  --stone: #3a3a3a;
+  --gold: #ffd60a;
+  --text: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(var(--sky) 0 60%, var(--grass) 60% 65%, var(--dirt) 65% 75%, var(--stone) 75% 100%);
+  image-rendering: pixelated;
+  font-family: 'Press Start 2P', monospace;
+  height: 100vh;
+  color: var(--text);
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 2rem auto;
+  text-align: center;
+  text-shadow: 3px 3px 0 #000;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+a, p { color: var(--text); }
+.hashtag { font-family: 'Press Start 2P', monospace; font-size: 0.8rem; }
+
+.acciones {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.acciones button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  background: var(--grass);
+  color: var(--text);
+  border: 4px solid var(--grass-dark);
+  border-radius: 0;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 0 var(--grass-dark), inset -2px -2px 0 rgba(0,0,0,0.25), inset 2px 2px 0 rgba(255,255,255,0.15);
+  transition: transform 80ms linear, box-shadow 80ms linear, filter 120ms ease;
+}
+
+.acciones button:hover { transform: translateY(-2px); box-shadow: 0 8px 0 var(--grass-dark); filter: brightness(1.05); }
+.acciones button:active { transform: translateY(2px); box-shadow: 0 3px 0 var(--grass-dark); }
+.acciones button.active { outline: 4px solid var(--gold); box-shadow: 0 8px 0 var(--grass-dark), 0 0 12px var(--gold); }
+
+#output {
+  max-width: 1100px;
+  margin: 1rem auto 3rem;
+  padding: 1rem;
+  min-height: 200px;
+  background:
+    repeating-linear-gradient(45deg, #2a2a2a 0 6px, #242424 6px 12px);
+  border: 6px solid #1f1f1f;
+  box-shadow: 0 0 0 6px #000, 0 12px 0 #000;
+  color: #f8f8f2;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+  .acciones { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 1.4rem; }
+}
