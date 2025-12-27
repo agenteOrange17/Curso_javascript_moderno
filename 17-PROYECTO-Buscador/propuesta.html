@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Autos | Premium Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --border: #334155;
+            --input-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* El Buscador - Estilo Card */
+        #buscador {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 3rem;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        select {
+            appearance: none;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+        }
+
+        /* Resultados */
+        .results-section {
+            margin-top: 4rem;
+        }
+
+        .results-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .divider {
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        #resultado {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Estilo para los items que inyectará tu JS */
+        .car-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        .sitio-web {
+            display: block;
+            text-align: center;
+            margin-top: 5rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .sitio-web:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            #buscador { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>DriveSelect</h1>
+            <p class="subtitle">Encuentra el auto perfecto entre nuestra colección exclusiva</p>
+        </header>
+
+        <form id="buscador">
+            <div class="grid-layout">
+                <div class="field-group">
+                    <label for="marca">Marca</label>
+                    <select id="marca">
+                        <option value="">Todas las marcas</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes Benz">Mercedes Benz</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Dodge">Dodge</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="year">Año</label>
+                    <select id="year">
+                        <option value="">Cualquier año</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="minimo">Mínimo ($)</label>
+                    <select id="minimo">
+                        <option value="">Sin mínimo</option>
+                        <option value="20000">20,000</option>
+                        <option value="30000">30,000</option>
+                        <option value="40000">40,000</option>
+                        <option value="50000">50,000</option>
+                        <option value="60000">60,000</option>
+                        <option value="70000">70,000</option>
+                        <option value="80000">80,000</option>
+                        <option value="90000">90,000</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="maximo">Máximo ($)</label>
+                    <select id="maximo">
+                        <option value="">Sin máximo</option>
+                        <option value="20000">20,000</option>
+                        <option value="30000">30,000</option>
+                        <option value="40000">40,000</option>
+                        <option value="50000">50,000</option>
+                        <option value="60000">60,000</option>
+                        <option value="70000">70,000</option>
+                        <option value="80000">80,000</option>
+                        <option value="90000">90,000</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="puertas">Puertas</label>
+                    <select id="puertas">
+                        <option value="">Todas</option>
+                        <option value="2">2 Puertas</option>
+                        <option value="4">4 Puertas</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="transmision">Transmisión</label>
+                    <select id="transmision">
+                        <option value="">Cualquiera</option>
+                        <option value="automatico">Automática</option>
+                        <option value="manual">Manual</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <label for="color">Color</label>
+                    <select id="color">
+                        <option value="">Cualquier color</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Rojo">Rojo</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <section class="results-section">
+            <div class="results-header">
+                <h2>Resultados</h2>
+                <div class="divider"></div>
+            </div>
+            <div id="resultado">
+                <p style="color: var(--text-dim)">Selecciona filtros para ver opciones...</p>
+            </div>
+        </section>
+
+        <footer>
+            <a class="sitio-web" href="https://www.codigoconjuan.com" rel="nofollow noopener noreferrer">
+                &larr; Creado en Código Con Juan
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/app.js"></script>
+    
+</body>
+</html>
