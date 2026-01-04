@@ -32,6 +32,7 @@ formulario.addEventListener('submit', function(e){
     // 5. Validacion      
     if(nombre === '' || telefono === '' || email === ''){
       alert('Por favor, completa todos los campos antes de agregar el contacto');
+      return;
     }
 
     // 6 Creamos el objeto de contacto
@@ -49,13 +50,18 @@ formulario.addEventListener('submit', function(e){
     console.log('Lista completa de contactos:', contactos);
     
     // 9. Limpiar el formulario
-    inputNombre.value = '';
-    inputTelefono.value = '';
-    inputEmail.value = '';
+    limpiarFormulario();
 
     // Mostrar contactos en pantalla
     renderizarContactos();
 });
+
+// Funcion para limpiar el formulario
+function limpiarFormulario(){
+  inputNombre.value = '';
+  inputTelefono.value = '';
+  inputEmail.value = '';
+}
 
 // Creamos la funcion para mostrar los contactos
 function renderizarContactos(){
