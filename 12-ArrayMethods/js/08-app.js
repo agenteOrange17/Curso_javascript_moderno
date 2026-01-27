@@ -18,7 +18,7 @@ const carrito = [
 const meses2 = [ ...meses, 'Agosto'];
 console.log(meses2);
 
-//
+//Spreed Operator con arreglo de productos
 const producto = { nombre: 'Disco Duro', precio: 300 };
 
 const carrito2 = [ ...carrito, producto ];

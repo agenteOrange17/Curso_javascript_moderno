@@ -16,7 +16,7 @@ const carrito = [
     { nombre: 'Celular', precio: 700 },
 ]
 
-//Metodo con forEach
+//Metodo con forEach manual
 meses.forEach((mes, i) => {
     if(mes === 'Enero') {
         console.log(`Encontrado en el indice ${i}`);

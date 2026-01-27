@@ -4,7 +4,7 @@ const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
 const meses2 = ['Agosto', 'Septiembre'];
 const meses3 = ['Octubre', 'Noviembre'];
 
-//.concat <-- Forma de concatenar
+//.concat <-- Forma de concatenar = Unir ambos arrays
 const resultado = meses.concat(meses2, meses3);
 console.log(resultado);
 

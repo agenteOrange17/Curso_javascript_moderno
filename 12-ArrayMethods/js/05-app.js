@@ -23,7 +23,7 @@ console.log(resultado);
 
 
 
-//.find - Devuelve solamente devuelve el primer elemento que cumpla con la condicion
+//.find - Devuelve solamente el primer elemento que cumpla con la condicion
 const resultado2 = carrito.find( producto => producto.nombre === 'Tablet');
 console.log(resultado2);
 

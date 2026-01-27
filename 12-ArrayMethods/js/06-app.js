@@ -8,6 +8,10 @@ const carrito = [
 ]
 
 
-//En every se tienen que cumplir todos 
+//En every se tienen que cumplir todos los elementos en caso de que no, no hara nada
 const resultado = carrito.every(producto => producto.precio < 500);
 console.log(resultado);
+
+// Si solo cumple una condicion
+const resultado2 = carrito.some(producto => producto.precio < 500);
+console.log(resultado2);

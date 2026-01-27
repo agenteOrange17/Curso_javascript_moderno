@@ -6,12 +6,15 @@ const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
 //Comprobar si un valor existe en un arreglo
 //Ahora Bien .includes este tipo de arreglo solo que tienen un valor en el indice
 /*
+Forma Manual
 meses.forEach( mes => {
     if(mes === 'Enero') {
         console.log('Enero si existe');    
     }
 })
 
+
+// Forma corta
 const resultado = meses.includes('Enero');
 console.log(resultado);
 */
@@ -32,7 +35,7 @@ const existe = carrito.some( producto => producto.nombre === 'Celular'); //Como 
 
 console.log(existe);
 
-
+// En un arreglo tradicional con .some
 const existe2 = meses.some( mes => mes === 'Febrero');
 console.log(existe2);
 
