@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Librería Moderna - Tu Tienda de Libros Online</title>
+    <link rel="stylesheet" href="css/tienda.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Librería Moderna</span>
+                </a>
+                <div class="nav-actions">
+                    <button class="cart-btn" id="img-carrito" aria-label="Abrir carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="carrito-lateral" id="carrito">
+        <div class="carrito-header">
+            <h2>Tu Carrito</h2>
+            <button id="cerrar-carrito" class="cerrar-carrito" aria-label="Cerrar carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul id="lista-carrito" class="lista-carrito">
+            <!-- Los items se agregarán con JavaScript -->
+        </ul>
+        <div class="carrito-footer">
+            <div class="total-carrito">
+                <span class="total-label">Total:</span>
+                <span class="total-amount">$<span id="total">0.00</span></span>
+            </div>
+            <button id="vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">Descubre tu próximo</span>
+                <span class="title-line highlight">libro favorito</span>
+            </h1>
+            <p class="hero-subtitle">Más de 10,000 títulos esperando por ti</p>
+            <form class="search-form" id="busqueda">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="buscador" 
+                        class="search-input" 
+                        placeholder="Busca por título, autor o género..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="submit-buscador" class="search-btn" aria-label="Buscar">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="feature-title">10,000+ Libros</h3>
+                <p class="feature-text">Explora nuestra amplia colección</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3 class="feature-title">Envío Gratis</h3>
+                <p class="feature-text">En compras mayores a $50</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Garantía</h3>
+                <p class="feature-text">Libros originales y nuevos</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="content-container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Libros</h2>
+                <p class="section-subtitle">Encuentra el libro perfecto para ti</p>
+            </div>
+            <div id="lista-libros" class="books-grid">
+                <!-- Las tarjetas se generarán con JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Librería Moderna</span>
+                </div>
+                <p class="footer-description">
+                    Tu destino para descubrir y comprar los mejores libros. 
+                    Más de 10,000 títulos disponibles.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorar</h4>
+                <nav class="footer-nav">
+                    <a href="#" class="footer-link">Categorías</a>
+                    <a href="#" class="footer-link">Autores</a>
+                    <a href="#" class="footer-link">Novedades</a>
+                    <a href="#" class="footer-link">Ofertas</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Soporte</h4>
+                <nav class="footer-nav">
+                    <a href="#" class="footer-link">Sobre Nosotros</a>
+                    <a href="#" class="footer-link">Contacto</a>
+                    <a href="#" class="footer-link">Preguntas Frecuentes</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <nav class="footer-nav">
+                    <a href="#" class="footer-link">Términos y Condiciones</a>
+                    <a href="#" class="footer-link">Política de Privacidad</a>
+                    <a href="#" class="footer-link">Blog</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Librería Moderna. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/cart.js"></script>
+    <script src="js/tienda.js"></script>
+</body>
+</html>

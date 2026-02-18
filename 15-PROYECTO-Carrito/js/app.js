@@ -97,7 +97,7 @@ function carritoHTML() {
 
   //Recorremos el carrito y genera el html
   articulosCarrito.forEach((curso) => {
-    const { imagen, titulo, precio, id, cantidad } = curso;
+    const { imagen, titulo, precio, id, cantidad } = curso; // Se usa destructuring para ya en el inner quitar el curso.imagen, curso.titulo etc...
     //Por cada elemento en el carrito
     const row = document.createElement("li");
     row.innerHTML = `
@@ -128,7 +128,7 @@ function limpiartHTML() {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
   }
-  //Lo que hace el codigo supon
+  //Lo que hace el codigo con firstChild hace:
   /*
     
     Estamos revisando mientras que haya un hijo la condicion se cumple por lo tanto el elemento padre elimina un hijo y vuelve a repetir hasta que ya no haya un hijo se deja de ejecutar
