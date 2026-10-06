@@ -28,7 +28,8 @@ function cargarEventListeners() {
   });
 }
 
-//Funciones
+//FUNCIONES
+//Agrega cursos al carrito
 function agregarCurso(e) {
   e.preventDefault(); //Evita que se refresque la pagina
   if (e.target.classList.contains("agregar-carrito")) {

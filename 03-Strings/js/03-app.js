@@ -7,7 +7,7 @@ console.log(producto.concat(precio)); // Concactenar una variable
 
 // Otras formas de concatenar:
 console.log(producto + precio); 
-console.log(producto +  "Con un precio de " +precio); 
+console.log(producto +  "Con un precio de " + precio); 
 console.log("El Producto" + producto +  " tiene un precio de " + precio); // Esta forma se puede complicar
 console.log("El Producto" , producto ,  " tiene un precio de ",  precio); // Otra forma
 

@@ -214,6 +214,17 @@ body {
     margin: 0.25rem 0;
 }
 
+.borrar-item{
+    border: none;
+    position: absolute;
+    right: 35px;
+    border-radius: 50%;
+    color: red;
+    font-size: 16px;
+    background-color: black;
+    height: 24px;
+    width: 24px;
+}
 .borrar-curso {
     background: var(--danger);
     color: white;

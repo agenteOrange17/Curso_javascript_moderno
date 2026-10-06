@@ -11,7 +11,7 @@ producto = 'Monitor de 19 Pulgadas';
 
 console.log(producto);
 
-// Javascript es un lenguaje de tIpo Dinamico,
+// Javascript es un lenguaje de tipo Dinamico,
 // No se especifican tipos de datos cuando
 // se crea la variable
 var precio = 200;
